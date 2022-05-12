@@ -1,0 +1,25 @@
+# Maintainer: Kuna <kunamech@protonmail.ch>
+
+pkgname=-stardict
+pkgver=
+filename=""
+short=""
+pkgrel=1
+pkgdesc="for Stardict"
+license=('freeware')
+arch=('any')
+depends=('stardict')
+url="https://code.google.com/archive/p/stardict-3/"
+md5sums=()
+
+source=()
+
+package() {
+	mkdir -vp "$pkgdir/usr/share/stardict/dic/oed"
+  cd ${filename}-${pkgver}/
+  install -m 644 *.dict.dz *.idx *.ifo "$pkgdir/usr/share/stardict/dic/$short"
+  cd ../${filename}-${pkgver}/
+  install -m 644 *.dict.dz *.idx *.ifo "$pkgdir/usr/share/stardict/dic/$short"
+}
+
+# vim:set ts=2 sw=2 et:

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for DIC in "$(ls dic/)"; do
+	mkdir -vp "dist/$DIC";
+	tar -pczvf "dist/$DIC/$DIC.tar.gz" "dic/$DIC"
+	md5sum -b "dist/$DIC/$DIC.tar.gz" > "dist/$DIC/$DIC.md5";
+done;
